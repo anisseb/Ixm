@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background-color: #343434;">
+  <ion-slides #mySlider pager style="z-index: 5;" >
+    <ion-slide *ngFor="let item of items | async" (click)="nextSlide()">
+      
+      <video width="100%" autoplay muted>
+        <source [src]="_DomSanitizer.bypassSecurityTrustUrl(item)" type="video/mp4">
+      </video>
+    </ion-slide>
+  </ion-slides>
+  <ion-icon style="position: fixed; bottom: 2%; right: 2%;color: white;z-index: 35;font-size: 2em;" 
+     ios="ios-arrow-dropdown" md="md-arrow-dropdown" id="test" (click)="showBar()" ></ion-icon>
+      <ion-icon  style="position: fixed; bottom: 2%; right: 2%;color: white;z-index: 35;font-size: 2em;" 
+     ios="ios-arrow-dropup" md="md-arrow-dropup" id="icon-bar-on"
+      (click)="hidebar()" ></ion-icon>
+      <ion-icon ios="ios-albums" style="position: fixed; bottom: 2%; right: 10%;color: white;z-index: 35;font-size: 2em;" md="md-albums" id="icon-setting"></ion-icon>
+                <ion-icon ios="ios-volume-up" style="position: fixed; bottom: 2%; right: 18%;color: white;z-index: 35;font-size: 2em;" md="md-volume-up" id="icon-volume"></ion-icon>
+                <ion-icon ios="ios-bookmark" style="position: fixed; bottom: 2%; right: 24%;color: white;z-index: 35;font-size: 2em;" md="md-bookmark" id="icon-save"></ion-icon>
+                <ion-icon name="search" style="position: fixed; bottom: 12%; left: 2%;color: white;z-index: 35;font-size: 2em;" md="md-search" id="icon-zoom" (click)="zoom_vignette()"></ion-icon>
+                <ion-icon ios="ios-expand" style="position: fixed; bottom: 2%; left: 2%;color: white;z-index: 35;font-size: 2em;" md="ios-expand-outline" id="icon-expand"></ion-icon>
+</ion-content>
